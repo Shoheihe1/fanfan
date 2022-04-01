@@ -168,7 +168,50 @@ window.onload = wrap_img;
 np.arange(start, stop, step)
 のように使う。</span>
 </div>
-</p>
+
+<br /></p>
+<blockquote><h2 id="np.linspace()">np.linspace()<a class="anchor-link" href="#np.linspace()"> </a></h2><p>この関数では要素数を指定して等差の配列を得ることが出来る。等差数列を得たいときに、交差を指定したいのか、もしくは要素数を指定したいのかという目的によって関数を使い分けると良い。</p>
+</blockquote>
+<p><br /></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[-10  -8  -6  -4  -2   0   2   4   6   8]
+[-10.  10.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><br />
 <br />
 <br /></p>
@@ -312,7 +355,11 @@ np.arange(start, stop, step)
 <li>解析的な微分は公式に則って微分すること（log(x)の微分は1/xになるとか</li>
 <li>数値微分は微分の定義に従ってlim飛ばして気合で計算すること</li>
 </ul>
-<p>でした。</p>
+<p>しかし、上記の説明は単なる表層を見ただけの説明にすぎず、根本的な違いは以下参照。
+<br /></p>
+<blockquote><h2 id="&#28961;&#38480;&#12392;&#26377;&#38480;">&#28961;&#38480;&#12392;&#26377;&#38480;<a class="anchor-link" href="#&#28961;&#38480;&#12392;&#26377;&#38480;"> </a></h2><p>実は両者には、無限と有限という対照的な違いがある。
+機械学習において、数値微分ではlimを飛ばすときのhを限りなく小さいが有限の値に設定する。つまりこの計算は有限であり、また離散的となる。一方解析的な微分は無限を含んだ微分であり、これはコンピューターには難しい計算らしい。</p>
+</blockquote>
 
 </div>
 </div>
