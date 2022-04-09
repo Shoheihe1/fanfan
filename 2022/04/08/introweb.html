@@ -258,17 +258,22 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>正直言うと、この変換がどのような法則で行われているのかわからなかった。公式ドキュメントにはこの変換で<strong>軸を入れ替える</strong>と書いてあるが、それは分かるのである。実際にこの変換がどのような法則によって行われているのか、自分なりにかみ砕いて説明する。</p>
-<p>変換は3段階に分けて考えると分かりやすい。</p>
+<p><br />
+<br /></p>
+<h3 id="&#9642;-3&#27573;&#38542;&#12391;&#22793;&#25563;">&#9642; 3&#27573;&#38542;&#12391;&#22793;&#25563;<a class="anchor-link" href="#&#9642;-3&#27573;&#38542;&#12391;&#22793;&#25563;"> </a></h3><p>変換は3段階に分けて考えると分かりやすい。</p>
+<p><br /></p>
 <ol>
 <li>全体の構造を把握する</li>
 <li>一番内側の（最小の）格子[]の中身は元の行列のどの部分に相当するか確認する</li>
 <li>次に来る内側の（最小の）格子が元の行列のどの部分に相当するか確認する</li>
 </ol>
+<p><br /></p>
 <p>である。具体的にどういうことなのかは以下の通り</p>
+<p><br /></p>
 <ol>
 <li><code>n3.shape</code>で構造を確認</li>
-<li><code>np.transpose(a,b,c)</code>の<code>c</code>に注目する。この軸が格子の最小単位を決定するので、1．の構造を参考にしつつ元の行列と見比べてみる</li>
-<li><code>np.transpose(a,b,c)</code>の<code>b</code>に注目する。これが次の格子を選ぶ際の軸となる。</li>
+<li>新しくできた行列の[1,3,5]がどのようにして生成されたかを考える。その為には<code>np.transpose(a,b,c)</code>の<code>c</code>に注目すると良い。この軸が格子の最小単位を決定するので、1．の構造を参考にしつつ元の行列と見比べてみる</li>
+<li>新しくできた行列の[2,4,6]がどのように生成されたかを考える。<code>np.transpose(a,b,c)</code>の<code>b</code>に注目すると良く、これが次の格子を選ぶ際の軸となる。</li>
 </ol>
 <p><br /></p>
 
@@ -277,10 +282,9 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>自分の文章力では説明に限界があるので、上に載せたコードの場合どのように考えるかを説明する。</p>
-<p>1．について、これは簡単で、<code>n3.shape</code>の結果を見ればよい。（今回は（2,2,3））</p>
-<p>2．が難しい。今回の場合、<code>np.transpose(0,2,1)</code>なので、<code>1</code>に注目する。軸「１」は元の行列では（2,<code>3</code>,2）の「３」に相当する。</p>
-<p>この「３」が元の行列で何を示しているのか。今回大事なのは</p>
+<h3 id="&#9642;-&#23455;&#38555;&#12398;&#12467;&#12540;&#12489;&#12391;&#27604;&#36611;">&#9642; &#23455;&#38555;&#12398;&#12467;&#12540;&#12489;&#12391;&#27604;&#36611;<a class="anchor-link" href="#&#9642;-&#23455;&#38555;&#12398;&#12467;&#12540;&#12489;&#12391;&#27604;&#36611;"> </a></h3><p>自分の文章力では説明に限界があるので、上に載せたコードの場合どのように考えるかを説明する。</p>
+<p>1．については簡単で、<code>n3.shape</code>の結果を見ればよい。（今回は（2,2,3））</p>
+<p>しかしながら2．が難しい。今回の場合、<code>np.transpose(0,2,1)</code>なので、<code>1</code>に注目する。軸「１」は元の行列では（2,<code>3</code>,2）の「３」に相当する。この「３」が元の行列で何を示しているのか。今回大事なのは</p>
 <p><strong>1,3,5の（縦）方向で行列を作る</strong></p>
 <p>という意味である（と思う）。</p>
 
@@ -289,9 +293,12 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br /></p>
 <p><strong>新しくできる行列の形は（2,2,3）であり1,3,5の方向で3つの数を取り出せば最小格子の中身が得られる</strong>という事なので、新たな行列の最小格子の一つは[1,3,5]であると分かる。</p>
-<p>---横並び比較---</p>
-<p><img src="/fanfan/images/copied_from_nb/image/2022-04-09-11-04-22.png" alt="" />　　　　　　　　　　　　　　<img src="image/2022-04-09-11-05-56.png" alt="" /></p>
+<p>---縦並べ比較---</p>
+<p><img src="/fanfan/images/copied_from_nb/image/2022-04-09-11-04-22.png" alt="" /></p>
+<p><img src="/fanfan/images/copied_from_nb/image/2022-04-09-11-05-56.png" alt="" /></p>
 
 </div>
 </div>
@@ -299,17 +306,17 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>新たな行列では[2,4,6]が次に来ている。これはどういうことなのかというのが、3．で分かるようになっている。</p>
-<p><code>np.transpose(0,2,1)</code>なので、<code>2</code>に注目する。軸「2」というのは元の行列で言うと(2,3,<code>2</code>)の「2」であり、これについて大切なのは<strong>1,2や3,4方向で数える</strong>という意味である。</p>
-<p>つまりどういうことかと言うと、<strong>元の行列から[1,3,5]の次に取ってくる格子の中身は、1,2方向（横方向）に進んで[2,4,6]にしなさい</strong>という事である。決して[7,9,11]ではないという事だ。</p>
+<p><code>np.transpose(0,2,1)</code>なので、<code>2</code>に注目する。軸「2」というのは元の行列で言うと(2,3,<code>2</code>)の「2」であり、これについて大切なのは<strong>1,2や3,4方向で数える</strong>という意味である。つまり、<strong>元の行列から[1,3,5]の次に取ってくる格子の中身は、1,2方向（横方向）に進んで[2,4,6]にしなさい</strong>という事である。決して[7,9,11]ではないという事だ。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>新たにできる行列の形は（2,2,3）なので、以上で（2,3）の1セットは完成である。これをもう1セット作れば、新たな行列の完成である。</p>
-<p>ちなみに、np.transpose(<code>0</code>,1,2)の「0」はあまり気にしなくても何とかなるというのが今のところの感想で、大事なのはその後ろの2つの軸であるという事を覚えておきたい。</p>
-<p>ちなみに以下が、本書のnp.transposeの変換である。</p>
+<p>新たにできる行列の形は（2,2,3）なので、以上で（2,3）の1セットは完成である。これをもう1セット作れば、新たな行列の完成だ。</p>
+<blockquote><p>ちなみに、np.transpose(<code>0</code>,1,2)の「0」はあまり気にしなくても何とかなるというのが今のところの感想で、大事なのはその後ろの2つの軸であるという事を覚えておきたい。</p>
+</blockquote>
+<p>以下が、本書のnp.transposeの変換である。</p>
 
 </div>
 </div>
