@@ -144,7 +144,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;"> </a></h2><ul>
 <li><a href="#画像のアップロード（p17）">画像のアップロード（p17）</a></li>
-<li><a href="#"></a></li>
+<li><a href="#pathオブジェクトの利用（p25）">pathオブジェクトの利用（p25）</a></li>
+<li></li>
 </ul>
 
 </div>
@@ -171,6 +172,22 @@ window.onload = wrap_img;
 <p><img src="/fanfan/images/copied_from_nb/image/2022-06-05-12-26-55.png" alt="" />
 <img src="/fanfan/images/copied_from_nb/image/2022-06-05-12-29-00.png" alt="" /></p>
 <p>↑成功。なんとAI様によると100%ねこらしい。機械に100%と言われるのは、何だか逆に心配になってくる。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<br /></p>
+<h2 id="path&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21033;&#29992;&#65288;p25&#65289;">path&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21033;&#29992;&#65288;p25&#65289;<a class="anchor-link" href="#path&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21033;&#29992;&#65288;p25&#65289;"> </a></h2><hr />
+<p><br />
+本書のコラムに、pathオブジェクトは便利だ、という記載があったので調べてみた。</p>
+<p>例えば画像を学習させる際は複数のディレクトリに訓練用、学習用、検証用のデータを入れて、モデル（正しくはアーキテクチャ？）に学習させる。</p>
+<p>この、「画像をそれぞれのディレクトリに割り当てる」という作業が実は面倒だった記憶があるのだが、<strong>ディレクトリのパスを単なる文字列ではなくpathオブジェクトにする</strong>だけで、色々と便利になるらしい。</p>
+<p>分かりやすい説明があったので、リンクを載せさせていただいた。</p>
+<p>→<a href="https://blog.narito.ninja/detail/72">narito blog「Python、pathlibモジュールを使う」</a></p>
 
 </div>
 </div>
