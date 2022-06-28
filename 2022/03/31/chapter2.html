@@ -233,9 +233,9 @@ pytorchでは、勾配計算をする際に対象の関数がスカラーであ�
 <p><br />
 <br />
 <br /></p>
-<h2 id="failed-to-execute-WindowsPath&#65288;'dot'&#65289;,-make-sure-the-Graphviz-executables-are-on-your-systems'-PATH&#12398;&#35299;&#27770;&#65288;p82&#65289;">failed to execute WindowsPath&#65288;'dot'&#65289;, make sure the Graphviz executables are on your systems' PATH&#12398;&#35299;&#27770;&#65288;p82&#65289;<a class="anchor-link" href="#failed-to-execute-WindowsPath&#65288;'dot'&#65289;,-make-sure-the-Graphviz-executables-are-on-your-systems'-PATH&#12398;&#35299;&#27770;&#65288;p82&#65289;"> </a></h2><hr />
+<h2 id="graphviz&#12456;&#12521;&#12540;&#12398;&#35299;&#27770;&#65288;p82&#65289;">graphviz&#12456;&#12521;&#12540;&#12398;&#35299;&#27770;&#65288;p82&#65289;<a class="anchor-link" href="#graphviz&#12456;&#12521;&#12540;&#12398;&#35299;&#27770;&#65288;p82&#65289;"> </a></h2><hr />
 <p><br />
-なんと、久々に82ページのコードを実行しようとすると、上記の様なエラーが出てしまった。このエラーを解決するためには、</p>
+なんと、久々に82ページのコードを実行しようとすると、下記の様なエラーが出てしまった。このエラーを解決するためには、</p>
 <p>1．仮想環境の作成　→　2．graphvizのインストール　→　3.環境設定でPATHの新規作成</p>
 <p>という3段階を経なければならない。なんだかんだ4時間以上かかってしまった。</p>
 <p><img src="/fanfan/images/copied_from_nb/image/2022-06-27-15-50-36.png" alt="" /></p>
@@ -252,8 +252,8 @@ pytorchでは、勾配計算をする際に対象の関数がスカラーであ�
 VScodeにおいて仮想環境を作る場合、ターミナルをVScode内で開くことができるので少し楽だ。手順は以下に示す。</p>
 <ul>
 <li>仮想環境を作成する適当なフォルダを作成する。(例．\Users\username\imaginary_environment\graphviz ディレクトリを作る)</li>
-<li>VScodeにて｢F1｣を押し、｢Create Terminal｣を選択し、ターミナルを開く</li>
-<li>(windowsの場合)｢py -3 -m venv .venv｣を作成したディレクトリで実行する</li>
+<li>VScodeにて｢F1｣を押し、｢Create Terminal｣を選択しターミナルを開く</li>
+<li>｢py -3 -m venv .venv｣を作成したディレクトリで実行する（windowsの場合）</li>
 <li>ターミナルを一度閉じ、再度開く。自分の場合ExecutionPolicyのエラーが出てしまったため、｢Set-ExecutionPolicy RemoteSigned -Scope Process｣をターミナルで毎度入力し、権限を一時的に許可している</li>
 </ul>
 <p>これで仮想環境の作成は完了である。あとは必要な物をインストールすれば良い</p>
@@ -263,6 +263,8 @@ VScodeにおいて仮想環境を作る場合、ターミナルをVScode内で�
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br /></p>
 <h3 id="2.graphviz&#12398;&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;">2.graphviz&#12398;&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;<a class="anchor-link" href="#2.graphviz&#12398;&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;"> </a></h3><p><br />
 ここで落とし穴があり、py -m pip install torchvizをターミナルで行ったとしても<strong>インストールしてあるgraphvizとの繋がりが形成されるだけで、graphviz自体はインストールされない</strong>という事だ。</p>
 <p>つまり、graphvizは公式サイトから自分でインストールしなければならない。</p>
@@ -272,6 +274,8 @@ VScodeにおいて仮想環境を作る場合、ターミナルをVScode内で�
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br /></p>
 <h3 id="3.&#29872;&#22659;&#35373;&#23450;&#12391;PATH&#12398;&#26032;&#35215;&#20316;&#25104;">3.&#29872;&#22659;&#35373;&#23450;&#12391;PATH&#12398;&#26032;&#35215;&#20316;&#25104;<a class="anchor-link" href="#3.&#29872;&#22659;&#35373;&#23450;&#12391;PATH&#12398;&#26032;&#35215;&#20316;&#25104;"> </a></h3><p><br />
 インストールしただけでは、実はまだエラーは解消しない。エラー文をよく読むと、PATHが何たらと書いてある。これが最後の問題点である。</p>
 <p>自分も良く分かっていないが、PATHとは探し物をする際の道しるべのようなもので、ここに登録しておいた道（PATH）はコンピューターが毎度歩いて探し物をしてくれるらしい。</p>
